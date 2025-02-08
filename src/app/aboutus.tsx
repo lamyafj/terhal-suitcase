@@ -17,7 +17,7 @@ const AboutUs = () => {
 
       {/* Flying Plane Animation */}
       <motion.img
-        src="/plane.png"
+        src="./plane.png"
         alt="Flying Plane"
         className="absolute w-[120px] md:w-[150px] lg:w-[400px]"
         initial={{ x: "-40vw", y: "80vh", scale: 0.5, rotate: -30, opacity: 1 }}

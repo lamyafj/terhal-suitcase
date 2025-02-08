@@ -1,14 +1,19 @@
-// import Image from "next/image";
 import Header from './header';
 import AboutUs from './aboutus';
+import TerhalSuitcase from './terhalsuitcase';
 
 export default function Home() {
   return (
-    <div className='p-2 sm:p-6 md:p-12 lg:p-16 xl:p-20'>
-    <Header />   <AboutUs/>
+    <div >
+      <Header />  
       <main>
-
-    
+        <section id="about-us min-h-[500px]"  >
+          <AboutUs />
+        </section>
+        <section id="terhal-suitcase"  className="min-h-[500px]">
+          <TerhalSuitcase />
+        </section>
+        {/* Add more sections as needed */}
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
     </div>

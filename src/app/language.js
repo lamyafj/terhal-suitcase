@@ -8,7 +8,7 @@ const LanguageContext = createContext();
 // Provider Component
 export const LanguageProvider = ({ children }) => {
   // Initialize State (Default English LTR)
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState("ar");
   const [direction, setDirection] = useState("ltr");
 
   // Load Cached Language on Page Load

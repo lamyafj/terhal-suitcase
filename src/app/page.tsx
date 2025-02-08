@@ -7,7 +7,7 @@ export default function Home() {
     <div >
       <Header />  
       <main>
-        <section id="about-us min-h-[500px]"  >
+        <section id="about-us "  className="min-h-[700px]" >
           <AboutUs />
         </section>
         <section id="terhal-suitcase"  className="min-h-[500px]">

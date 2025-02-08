@@ -6,11 +6,11 @@ const AboutUs = () => {
   const { language } = useLanguage();
 
   return (
-    <div className="relative w-full min-h-[600px] flex items-center justify-center">
+    <div className="w-full  mb-50 min-h-[450px]  flex items-center justify-center">
       
       {/* Background Image */}
       <img
-        src="/blob-scene.svg"
+        src="./blob-scene.svg"
         alt="Background"
         className="w-full h-full absolute top-0 left-0 z-[-100] object-cover"
       />

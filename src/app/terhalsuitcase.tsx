@@ -8,8 +8,7 @@ const TerhalSuitcase = () => {
   return (
     <div className=" min-h-[500px]" >
 
-hi
-www
+terhal suitcase section
     </div>
   );
 };

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-
+import { LanguageProvider } from "./language";
 import "./globals.css";
-
-
 
 export const metadata: Metadata = {
   title: "Terhal | ترحال",
@@ -17,9 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-    
       >
-        {children}
+           <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

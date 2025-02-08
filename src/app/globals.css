@@ -9,9 +9,9 @@
   --maincolor: #0C343D;
   --secondary-glow: conic-gradient(
     from 10deg at 50% 50%,
-    #badaff 0deg,
-    #92adde 55deg,
-    #92dff0 120deg,
+    #edffba 0deg,
+    #b0d4b6 55deg,
+    #bbbeda 120deg,
     #c8e2f7 160deg,
     transparent 360deg
   );
@@ -19,9 +19,9 @@
   --third-glow: conic-gradient(
     from 90deg at 50% 50%,
     #d0ebff 0deg,
-    #d3e2ff 160deg,
+    #d3ffde 160deg,
     #b6b6b6 120deg,
-    #9beef3 55deg,
+    #76c1c5 55deg,
     transparent 360deg
   );
 }
@@ -36,11 +36,13 @@
 body {
   color: var(--maincolor);
   background: var(--background);
-  font-size: 30px;
   font-family: 'Pochaevsk','zain';
-  min-height: 100vh;
+
   background-attachment: fixed;
+  overflow-y: hidden;
 }
+
+
 
 
 

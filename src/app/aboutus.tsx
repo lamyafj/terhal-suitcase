@@ -12,7 +12,7 @@ const AboutUs = () => {
 
       {/* Flying Plane Animation (Infinite Loop) */}
       <motion.img
-        src="/plane.png"
+        src="./plane.png"
         alt="Flying Plane"
         className="absolute w-[120px] md:w-[150px] lg:w-[400px]"
         initial={{ x: "-20vw", y: "80vh", scale: 0.5, rotate: -30, opacity: 1 }}
@@ -23,7 +23,7 @@ const AboutUs = () => {
         }}
       />
 
-  <img src="/blob-scene.svg" alt="Background" className="w-full h-full absolute top-0 left-0 z-[-100]  object-cover" />
+  <img src="./blob-scene.svg" alt="Background" className="w-full h-full absolute top-0 left-0 z-[-100]  object-cover" />
 
     </div>
   );

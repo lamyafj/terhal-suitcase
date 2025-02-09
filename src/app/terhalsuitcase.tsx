@@ -1,22 +1,20 @@
 "use client";
-import "@google/model-viewer";
-import { useLanguage } from "./language";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
-
-// Ensure TypeScript recognizes model-viewer
-declare global {
-  interface JSX {
-    interface IntrinsicElements {
-      "model-viewer": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-    }
-  }
-}
-export {}; // Ensure this file is treated as a module
+import { useLanguage } from "./language";
 
 export default function TerhalSuitcase() {
   const { language }: { language: "en" | "ar" } = useLanguage();
+  const [isClient, setIsClient] = useState(false);
+
+  // Ensure component is only rendered on client
+  useEffect(() => {
+    setIsClient(true);
+    import("@google/model-viewer").catch(console.error);
+  }, []);
+
+  // Intersection Observer for animations
   const [leftRef, leftInView] = useInView({ threshold: 0.3 });
   const [rightRef, rightInView] = useInView({ threshold: 0.3 });
 
@@ -55,14 +53,20 @@ export default function TerhalSuitcase() {
         ))}
       </motion.div>
 
-      {/* 3D Suitcase Model in the Center */}
-      <model-viewer
-        src="/suitcase2.glb"
-        alt={language === "ar" ? "حقيبة ثلاثية الأبعاد" : "3D Suitcase"}
-        auto-rotate
-        camera-controls
-        style={{ width: "400px", height: "500px" }}
-      ></model-viewer>
+      {/* 3D Suitcase Model (Only Rendered on Client) */}
+      {isClient ? (
+        <model-viewer
+          src="/suitcase2.glb"
+          alt={language === "ar" ? "حقيبة ثلاثية الأبعاد" : "3D Suitcase"}
+          auto-rotate
+          camera-controls
+          style={{ width: "400px", height: "500px" }}
+        ></model-viewer>
+      ) : (
+        <div style={{ width: "400px", height: "500px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <p>Loading...</p> {/* Placeholder to prevent hydration mismatch */}
+        </div>
+      )}
 
       {/* Right-Side Features (Left for Arabic) */}
       <motion.div

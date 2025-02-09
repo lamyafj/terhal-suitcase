@@ -14,8 +14,12 @@ const Header = () => {
 
   return (
     <div className="flex px-8 py justify-between text-xl sm:text-1xl md:text-2xl lg:text-1xl">
+  <img 
+  src="./logo.png" 
+  alt="logo" 
+  className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
+/>
       <div className="font-bold flex justify-center items-center">
-        Terhal Logo
       </div>
       <div className="flex px-2 space-x-4 gap-3 text-black">
         <button onClick={() => scrollToSection("about-us")}>

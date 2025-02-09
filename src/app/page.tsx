@@ -4,6 +4,7 @@ import Header from './header';
 import AboutUs from './aboutus';  // We're using this now
 import TerhalApp from './TerhalApp';
 import ContactUs from './ContactUs';
+import TerhalSuitcase from './terhalsuitcase'
 import { useState, useEffect } from "react";
 
 const sections = [
@@ -44,18 +45,28 @@ export default function Home() {
   };
 
   return (
-    <div className="relative">
-      <Header />
+    <div className="relative">\
+      <Header />     
+      
+
+            {/* Background SVG */}
+            <img
+        src="./blob-scene.svg"
+        alt="Background"
+        className="fixed top-0 left-0 w-screen h-screen object-cover z-[-1]"
+      />
+
       <main className="pt-20 sm:pt-24 md:pt-28 lg:pt-32">
         {/* Use AboutUs component here */}
-        <section id="about-us" className="min-h-screen flex items-center justify-center text-black">
+        <section id="about-us" className="min-h-screen">
           <AboutUs />
         </section>
 
-        <section id="terhal-suitcase" className="min-h-screen flex items-center justify-center text-black">
+        <section id="terhal-suitcase" className="min-h-screen flex items-center justify-center ">
           <div>
-            <h1 className="text-4xl font-bold">Terhal Suitcase</h1>
-            <p className="mt-4 text-lg">Content for Terhal Suitcase section.</p>
+            <TerhalSuitcase/>
+            {/* <h1 className="text-4xl font-bold">Terhal Suitcase</h1>
+            <p className="mt-4 text-lg">Content for Terhal Suitcase section.</p> */}
           </div>
         </section>
 

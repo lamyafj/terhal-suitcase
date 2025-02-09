@@ -6,14 +6,10 @@ const AboutUs = () => {
   const { language } = useLanguage();
 
   return (
-    <div className="w-full  mb-50 min-h-[450px]  flex items-center justify-center">
+    <div className="w-full  mb-50 min-h-[450px]  flex  justify-center">
       
       {/* Background Image */}
-      <img
-        src="./blob-scene.svg"
-        alt="Background"
-        className="w-full h-full absolute top-0 left-0 z-[-100] object-cover"
-      />
+
 
       {/* Flying Plane Animation */}
       <motion.img
@@ -21,7 +17,7 @@ const AboutUs = () => {
         alt="Flying Plane"
         className="absolute w-[120px] md:w-[150px] lg:w-[400px]"
         initial={{ x: "-40vw", y: "80vh", scale: 0.5, rotate: -30, opacity: 1 }}
-        animate={{ x: "-30vw", y: "30vh", scale: 1.5, rotate: -10, opacity: 1 }}
+        animate={{ x: "-30vw", y: "10vh", scale: 1.5, rotate: -10, opacity: 1 }}
         transition={{
           duration: 3,
           ease: "easeOut",

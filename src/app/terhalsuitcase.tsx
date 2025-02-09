@@ -3,17 +3,22 @@ import "@google/model-viewer";
 import { useLanguage } from "./language";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 
+// Ensure TypeScript recognizes model-viewer
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "model-viewer": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+    }
+  }
+}
 
 export default function TerhalSuitcase() {
-  // Ensure `language` is properly typed
   const { language }: { language: "en" | "ar" } = useLanguage();
-
-  // Intersection Observer for animation triggers
   const [leftRef, leftInView] = useInView({ threshold: 0.3 });
   const [rightRef, rightInView] = useInView({ threshold: 0.3 });
 
-  // Define suitcase features in both languages
   const features: Record<"en" | "ar", string[]> = {
     en: [
       "📍 GPS Tracking",

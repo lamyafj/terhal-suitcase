@@ -4,15 +4,17 @@ import { useLanguage } from "./language";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+
 export default function TerhalSuitcase() {
-  const { language } = useLanguage();
+  // Ensure `language` is properly typed
+  const { language }: { language: "en" | "ar" } = useLanguage();
 
   // Intersection Observer for animation triggers
   const [leftRef, leftInView] = useInView({ threshold: 0.3 });
   const [rightRef, rightInView] = useInView({ threshold: 0.3 });
 
   // Define suitcase features in both languages
-  const features = {
+  const features: Record<"en" | "ar", string[]> = {
     en: [
       "📍 GPS Tracking",
       "🔒 Biometric Security Lock",
@@ -49,7 +51,7 @@ export default function TerhalSuitcase() {
 
       {/* 3D Suitcase Model in the Center */}
       <model-viewer
-        src="./suitcase2.glb"
+        src="/suitcase2.glb"
         alt={language === "ar" ? "حقيبة ثلاثية الأبعاد" : "3D Suitcase"}
         auto-rotate
         camera-controls

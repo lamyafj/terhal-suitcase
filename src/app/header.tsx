@@ -18,14 +18,19 @@ const Header = () => {
         Terhal Logo
       </div>
       <div className="flex px-2 space-x-4 gap-3 text-black">
-        <div>{language === "en" ? "About Us" : "معلومات عنا"}</div>
-        <div>{language === "en" ? "Terhal Suitcase" : "حقيبة ترحال"}</div>
-        <div>{language === "en" ? "Terhal Application" : "تطبيق ترحال"}</div>
-        <div>{language === "en" ? "Contact Us" : "تواصل معنا"}</div>
-        <button
-          onClick={toggleLanguage}
-          className=" rounded text-black"
-        >
+        <button onClick={() => scrollToSection("about-us")}>
+          {language === "en" ? "About Us" : "معلومات عنا"}
+        </button>
+        <button onClick={() => scrollToSection("terhal-suitcase")}>
+          {language === "en" ? "Terhal Suitcase" : "حقيبة ترحال"}
+        </button>
+        <button onClick={() => scrollToSection("terhal-app")}>
+          {language === "en" ? "Terhal Application" : "تطبيق ترحال"}
+        </button>
+        <button onClick={() => scrollToSection("contact-us")}>
+          {language === "en" ? "Contact Us" : "تواصل معنا"}
+        </button>
+        <button onClick={toggleLanguage} className="rounded text-black">
           {language === "en" ? "Arabic" : "English"}
         </button>
       </div>

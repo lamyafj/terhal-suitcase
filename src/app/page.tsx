@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Header from './header';
 import AboutUs from './aboutus';
 import TerhalApp from './TerhalApp';
 import ContactUs from './ContactUs';
-import TerhalSuitcase from './terhalsuitcase';
+import { useState, useEffect } from "react";
 
 const sections = [
   { id: "about-us", title: "About Us" },
@@ -48,19 +47,38 @@ export default function Home() {
     <div className="relative">
       <Header />
       <main className="pt-20 sm:pt-24 md:pt-28 lg:pt-32">
-        <section id="about-us" className="min-h-screen flex items-center justify-center bg-fixed bg-cover text-black">
-          <AboutUs />
+        <section
+          id="about-us"
+          className="min-h-screen flex items-center justify-center bg-fixed bg-cover text-black"
+          style={{ backgroundImage: "url('/path-to-background.jpg')" }}
+        >
+          <div>
+            <h1 className="text-4xl font-bold">About Us</h1>
+            <p className="mt-4 text-lg">This is the About Us section content.</p>
+          </div>
         </section>
 
-        <section id="terhal-suitcase" className="min-h-screen flex items-center justify-center text-black">
-          <TerhalSuitcase />
+        <section
+          id="terhal-suitcase"
+          className="min-h-screen flex items-center justify-center text-black"
+        >
+          <div>
+            <h1 className="text-4xl font-bold">Terhal Suitcase</h1>
+            <p className="mt-4 text-lg">Content for Terhal Suitcase section.</p>
+          </div>
         </section>
 
-        <section id="terhal-app" className="min-h-screen flex items-center justify-center text-black">
+        <section
+          id="terhal-app"
+          className="min-h-screen flex items-center justify-center text-black"
+        >
           <TerhalApp />
         </section>
 
-        <section id="contact-us" className="min-h-screen flex items-center justify-center text-black">
+        <section
+          id="contact-us"
+          className="min-h-screen flex items-center justify-center text-black"
+        >
           <ContactUs />
         </section>
       </main>

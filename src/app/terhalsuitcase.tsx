@@ -3,16 +3,17 @@ import "@google/model-viewer";
 import { useLanguage } from "./language";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Image from "next/image";
+
 
 // Ensure TypeScript recognizes model-viewer
 declare global {
-  namespace JSX {
+  interface JSX {
     interface IntrinsicElements {
       "model-viewer": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
     }
   }
 }
+export {}; // Ensure this file is treated as a module
 
 export default function TerhalSuitcase() {
   const { language }: { language: "en" | "ar" } = useLanguage();

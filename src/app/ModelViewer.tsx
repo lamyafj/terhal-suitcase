@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-// Load the `model-viewer` module only in the browser
-export default function ModelViewer(props: any) {
+// Define types for <model-viewer> props
+interface ModelViewerProps extends React.ComponentPropsWithoutRef<"model-viewer"> {}
+
+export default function ModelViewer(props: ModelViewerProps) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {

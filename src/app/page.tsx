@@ -1,17 +1,6 @@
-"use client";
-
+// import Image from "next/image";
 import Header from './header';
 import AboutUs from './aboutus';
-import TerhalApp from './TerhalApp';
-import ContactUs from './ContactUs';
-import { useState, useEffect } from "react";
-
-const sections = [
-  { id: "about-us", title: "About Us" },
-  { id: "terhal-suitcase", title: "Terhal Suitcase" },
-  { id: "terhal-app", title: "Terhal App" },
-  { id: "contact-us", title: "Contact Us" },
-];
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about-us");
@@ -44,43 +33,11 @@ export default function Home() {
   };
 
   return (
-    <div className="relative">
-      <Header />
-      <main className="pt-20 sm:pt-24 md:pt-28 lg:pt-32">
-      <section
-  id="about-us"
-  className="min-h-screen flex items-center justify-center bg-fixed bg-cover text-black"
-  style={{ backgroundImage: "url('/path-to-background.jpg')" }}
->
-  <div>
-    <h1 className="text-4xl font-bold">About Us</h1>
-    <p className="mt-4 text-lg">This is the About Us section content.</p>
-  </div>
-</section>
+    <div className='p-2 sm:p-6 md:p-12 lg:p-16 xl:p-20'>
+    <Header />   <AboutUs/>
+      <main>
 
-<section
-  id="terhal-suitcase"
-  className="min-h-screen flex items-center justify-center text-black"
->
-  <div>
-    <h1 className="text-4xl font-bold">Terhal Suitcase</h1>
-    <p className="mt-4 text-lg">Content for Terhal Suitcase section.</p>
-  </div>
-</section>
-<section
-  id="terhal-app"
-  className="min-h-screen flex items-center justify-center text-black"
->
-  <TerhalApp />
-
-</section>
-
-<section
-  id="contact-us"
-  className="min-h-screen flex items-center justify-center text-black"
->
-  <ContactUs />
-</section>
+    
       </main>
 
       {/* Dots Navigation */}

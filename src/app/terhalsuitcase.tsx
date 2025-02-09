@@ -1,18 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "./language";
 
 export default function TerhalSuitcase() {
   const { language }: { language: "en" | "ar" } = useLanguage();
-  const [isClient, setIsClient] = useState(false);
 
   // Ensure component is only rendered on client
-  useEffect(() => {
-    setIsClient(true);
-    import("@google/model-viewer").catch(console.error);
-  }, []);
 
   // Intersection Observer for animations
   const [leftRef, leftInView] = useInView({ threshold: 0.3 });
@@ -29,7 +23,7 @@ export default function TerhalSuitcase() {
     ],
     ar: [
       "📍 تتبع GPS",
-      "🔒 قفل بيومتري آمن",
+      "🔒 قفل بالبصمة آمن",
       "⚖️ ميزان مدمج للوزن",
       "🔋 منفذ شحن USB",
       "💼 تصميم أنيق ومتين",
@@ -46,27 +40,59 @@ export default function TerhalSuitcase() {
         initial={{ x: language === "ar" ? -100 : 100, opacity: 0 }}
         animate={leftInView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 0.8 }}
-        style={{ textAlign: language === "ar" ? "right" : "left", fontSize: "18px", fontWeight: "bold" }}
+        style={{ textAlign: language === "ar" ? "right" : "left", fontSize: "28px", fontWeight: "bold" }}
       >
         {features[language].slice(0, 3).map((feature, index) => (
           <div key={index} style={{ margin: "10px 0" }}>{feature}</div>
         ))}
       </motion.div>
 
-      {/* 3D Suitcase Model (Only Rendered on Client) */}
-      {isClient ? (
-        <model-viewer
-          src="/suitcase2.glb"
-          alt={language === "ar" ? "حقيبة ثلاثية الأبعاد" : "3D Suitcase"}
-          auto-rotate
-          camera-controls
-          style={{ width: "400px", height: "500px" }}
-        ></model-viewer>
-      ) : (
-        <div style={{ width: "400px", height: "500px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <p>Loading...</p> {/* Placeholder to prevent hydration mismatch */}
-        </div>
-      )}
+      <motion.img
+        src="./suitcase1.png"
+        alt="Flying Plane"
+        className="absolute w-[120px] md:w-[150px] lg:w-[550px]"
+        initial={{ x: "-40vw", y: "80vh", scale: 0.5, rotate: -30, opacity: 1  }}
+        animate={{ x: "-36vw", y: "20vh", scale: 1.5, rotate: -10, opacity: 1 }}
+        transition={{
+          duration: 3,
+          ease: "easeOut",
+        }}
+      />
+
+<motion.img
+        src="./suitcase5.png"
+        alt="Flying Plane"
+        className="absolute w-[120px] md:w-[150px] lg:w-[500px]"
+        initial={{ x: "60vw", y: "80vh", scale: 0.5, rotate: 90, opacity: 1 }}
+        animate={{ x: "30vw", y: "25vh", scale: 1.5, rotate: 30, opacity: 1 }}
+        transition={{
+          duration: 3,
+          ease: "easeOut",
+        }}
+      />
+
+<motion.img
+        src="./suitcase4.png"
+        alt="Flying Plane"
+        className="absolute w-[120px] md:w-[150px] lg:w-[400px]"
+        initial={{ x: "-60vw", y: "80vh", scale: 0.5, rotate: -30, opacity: 1 }}
+        animate={{ x: "-40vw", y: "-10vh", scale: 1.5, rotate: -10, opacity: 1 }}
+        transition={{
+          duration: 3,
+          ease: "easeOut",
+        }}
+      />
+<motion.img
+        src="./suitcase3.png"
+        alt="Flying Plane"
+        className="absolute w-[120px] md:w-[150px] lg:w-[400px]"
+        initial={{ x: "40vw", y: "80vh", scale: 0.5, rotate: -20, opacity: 1 }}
+        animate={{ x: "35vw", y: "-15vh", scale: 1.5, rotate: -20, opacity: 1 }}
+        transition={{
+          duration: 3,
+          ease: "easeOut",
+        }}
+      />
 
       {/* Right-Side Features (Left for Arabic) */}
       <motion.div
@@ -74,7 +100,7 @@ export default function TerhalSuitcase() {
         initial={{ x: language === "ar" ? 100 : -100, opacity: 0 }}
         animate={rightInView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 0.8 }}
-        style={{ textAlign: language === "ar" ? "left" : "right", fontSize: "18px", fontWeight: "bold" }}
+        style={{ textAlign: language === "ar" ? "left" : "right", fontSize: "28px", fontWeight: "bold" }}
       >
         {features[language].slice(3, 6).map((feature, index) => (
           <div key={index} style={{ margin: "10px 0" }}>{feature}</div>

@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
-import { useEffect, useRef } from "react";
-import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";  // Keep useEffect
+import { useInView } from "react-intersection-observer";  // Keep useInView
 import { useLanguage } from "./language";
 
 type LanguageKey = "en" | "ar";

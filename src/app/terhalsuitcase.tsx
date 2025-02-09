@@ -88,7 +88,7 @@ export default function TerhalSuitcase() {
         {/* 🔥 Flying Suitcases Animation (Start Only When In View) */}
         <motion.img
           ref={img1Ref}
-          src="./suitcase1.png"
+          src="./suitcase1.webp"
           alt="Suitcase"
           className="absolute w-[120px] md:w-[150px] lg:w-[550px]"
           initial={{ x: "-40vw", y: "20vh", scale: 0.5, rotate: -30, opacity: 0 }}
@@ -98,7 +98,7 @@ export default function TerhalSuitcase() {
 
         <motion.img
           ref={img2Ref}
-          src="./suitcase5.png"
+          src="./suitcase5.webp"
           alt="Suitcase"
           className="absolute w-[120px] md:w-[150px] lg:w-[500px]"
           initial={{ x: "40vw", y: "20vh", scale: 0.5, rotate: 90, opacity: 0 }}
@@ -108,17 +108,17 @@ export default function TerhalSuitcase() {
 
         <motion.img
           ref={img3Ref}
-          src="./suitcase4.png"
+          src="./suitcase4.webp"
           alt="Suitcase"
           className="absolute w-[120px] md:w-[150px] lg:w-[400px]"
-          initial={{ x: "-40vw", y: "20vh", scale: 0.5, rotate: -30, opacity: 0 }}
+          initial={{ x: "-40vw", y: "20vh", scale: 0.5, rotate: -30, opacity: 0 ,}}
           animate={img3InView ? { x: "-40vw", y: "-30vh", scale: 1.5, rotate: -10, opacity: 1 } : {}}
           transition={{ duration: 3, ease: "easeOut" }}
         />
 
         <motion.img
           ref={img4Ref}
-          src="./suitcase3.png"
+          src="./suitcase3.webp"
           alt="Suitcase"
           className="absolute w-[120px] md:w-[150px] lg:w-[400px]"
           initial={{ x: "40vw", y: "20vh", scale: 0.5, rotate: -20, opacity: 0 }}

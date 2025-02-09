@@ -13,11 +13,11 @@ interface ImageData {
 }
 
 const images: ImageData[] = [
-  { src: "/images/terhal1.png", description: { en: "Login", ar: "تسجيل الدخول" } },
-  { src: "/images/terhal2.png", description: { en: "Event Scheduling", ar: "جدولة الفعاليات" } },
-  { src: "/images/terhal3.png", description: { en: "Add Event", ar: "إضافة حدث" } },
-  { src: "/images/terhal4.png", description: { en: "Today's Schedule", ar: "مراجعة جدول اليوم" } },
-  { src: "/images/terhal5.png", description: { en: "Track Luggage Location", ar: "تحديد موقع الأمتعة" } },
+  { src: "./images/terhal1.png", description: { en: "Login", ar: "تسجيل الدخول" } },
+  { src: "./images/terhal2.png", description: { en: "Event Scheduling", ar: "جدولة الفعاليات" } },
+  { src: "./images/terhal3.png", description: { en: "Add Event", ar: "إضافة حدث" } },
+  { src: "./images/terhal4.png", description: { en: "Today's Schedule", ar: "مراجعة جدول اليوم" } },
+  { src: "./images/terhal5.png", description: { en: "Track Luggage Location", ar: "تحديد موقع الأمتعة" } },
 ];
 
 const TerhalApp = () => {

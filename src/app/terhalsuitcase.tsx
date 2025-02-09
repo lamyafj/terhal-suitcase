@@ -1,5 +1,6 @@
 "use client";
-import "@google/model-viewer";
+
+import ModelViewer from "./ModelViewer"; // Adjust path if needed
 import { useLanguage } from "./language";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -48,13 +49,12 @@ export default function TerhalSuitcase() {
       </motion.div>
 
       {/* 3D Suitcase Model in the Center */}
-      <model-viewer
+      <ModelViewer
         src="./suitcase2.glb"
         alt={language === "ar" ? "حقيبة ثلاثية الأبعاد" : "3D Suitcase"}
         auto-rotate
         camera-controls
-        style={{ width: "400px", height: "500px" }}
-      ></model-viewer>
+      />
 
       {/* Right-Side Features (Left for Arabic) */}
       <motion.div

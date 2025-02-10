@@ -77,15 +77,15 @@ export default function Home() {
         </section>
 
         {/* Terhal Video Section */}
-        <section id="terhal-video" className="min-h-screen flex flex-col items-center justify-center text-black">
+        <section id="terhal-video" className="min-h-screen flex flex-col items-center justify-center ">
           <h2 className="text-4xl font-bold mb-4">
-            {language === "ar" ? "فيديو ترحال" : "Terhal Video"}
+            {language === "ar" ? "ألقِ نظرة على ترحال" : "Take a look at Terhal"}
           </h2>
           <div className="w-full max-w-3xl">
             <iframe
               width="100%"
               height="400"
-              src={language === "ar" ? "https://www.youtube.com/embed/PeiVyMMPNy4" : "https://www.youtube.com/embed/PeiVyMMPNy4"}
+              src= "https://youtu.be/5gFS0omyeZo?si=Dfo3Ep3VujlBVa5i" 
               title={language === "ar" ? "فيديو ترحال" : "Terhal Video"}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -99,7 +99,7 @@ export default function TerhalSuitcase() {
           initial={{ x: "-40vw", y: "20vh", scale: 0.5, rotate: -30, opacity: 0 }}
           animate={
             img1InView
-              ? { x: "-37vw", y: "25vh", scale: 1.5, rotate: -10, opacity: 1 }
+              ? { x: "-37vw", y: "25vh", scale: 1.5, rotate: -15, opacity: 1 }
               : {}
           }
           transition={{ duration: 3, ease: "easeOut" }}
@@ -141,7 +141,7 @@ export default function TerhalSuitcase() {
           initial={{ x: "40vw", y: "20vh", scale: 0.5, rotate: -20, opacity: 0 }}
           animate={
             img4InView
-              ? { x: "35vw", y: "-30vh", scale: 1.5, rotate: -20, opacity: 1 }
+              ? { x: "40vw", y: "-30vh", scale: 1.5, rotate: -20, opacity: 1 }
               : {}
           }
           transition={{ duration: 3, ease: "easeOut" }}

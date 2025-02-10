@@ -95,7 +95,7 @@ export default function TerhalSuitcase() {
           ref={img1Ref}
           src="./suitcase1.webp"
           alt="Suitcase"
-          className="absolute w-[550px] md:w-[150px] lg:w-[550px] z-[-1]"
+          className="absolute w-[550px] md:w-[400px] lg:w-[550px] z-[-1]"
           initial={{ x: "-40vw", y: "20vh", scale: 0.5, rotate: -30, opacity: 0 }}
           animate={
             img1InView
@@ -109,7 +109,7 @@ export default function TerhalSuitcase() {
           ref={img2Ref}
           src="./suitcase5.webp"
           alt="Suitcase"
-          className="absolute w-[550px] md:w-[150px] lg:w-[500px] z-[-1]"
+          className="absolute w-[550px] md:w-[400px] lg:w-[500px] z-[-1]"
           initial={{ x: "40vw", y: "20vh", scale: 0.5, rotate: 90, opacity: 0 }}
           animate={
             img2InView
@@ -123,7 +123,7 @@ export default function TerhalSuitcase() {
           ref={img3Ref}
           src="./suitcase4.webp"
           alt="Suitcase"
-          className="absolute w-[550px] md:w-[150px] lg:w-[400px] z-[-1]"
+          className="absolute w-[550px] md:w-[400px] lg:w-[400px] z-[-1]"
           initial={{ x: "-40vw", y: "20vh", scale: 0.5, rotate: -30, opacity: 0 }}
           animate={
             img3InView
@@ -137,7 +137,7 @@ export default function TerhalSuitcase() {
           ref={img4Ref}
           src="./suitcase3.webp"
           alt="Suitcase"
-          className="absolute w-[400px] md:w-[150px] lg:w-[400px] z-[-1]"
+          className="absolute w-[400px] md:w-[400px] lg:w-[400px] z-[-1]"
           initial={{ x: "40vw", y: "20vh", scale: 0.5, rotate: -20, opacity: 0 }}
           animate={
             img4InView

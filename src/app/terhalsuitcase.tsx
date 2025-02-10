@@ -96,7 +96,7 @@ export default function TerhalSuitcase() {
           alt="Suitcase"
           className="absolute w-[550px] md:w-[150px] lg:w-[550px]  z-[-1]"
           initial={{ x: "-40vw", y: "20vh", scale: 0.5, rotate: -30, opacity: 0 }}
-          animate={img1InView ? { x: "-37vw", y: "20vh", scale: 1.5, rotate: -10, opacity: 1 } : {}}
+          animate={img1InView ? { x: "-37vw", y: "25vh", scale: 1.5, rotate: -10, opacity: 1 } : {}}
           transition={{ duration: 3, ease: "easeOut" }}
         />
 
@@ -106,7 +106,7 @@ export default function TerhalSuitcase() {
           alt="Suitcase"
           className="absolute w-[550px] md:w-[150px] lg:w-[500px]  z-[-1]"
           initial={{ x: "40vw", y: "20vh", scale: 0.5, rotate: 90, opacity: 0 }}
-          animate={img2InView ? { x: "33vw", y: "10vh", scale: 1.5, rotate: 30, opacity: 1 } : {}}
+          animate={img2InView ? { x: "33vw", y: "15vh", scale: 1.5, rotate: 30, opacity: 1 } : {}}
           transition={{ duration: 3, ease: "easeOut" }}
         />
 

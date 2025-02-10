@@ -81,8 +81,7 @@ export default function Home() {
           <h2 className="text-4xl font-bold mb-4">
             {language === "ar" ? "فيديو ترحال" : "Terhal Video"}
           </h2>
-{/* /مقطع/ */}
-          {/* <div className="w-full max-w-3xl">
+          <div className="w-full max-w-3xl">
             <iframe
               width="100%"
               height="400"
@@ -92,9 +91,7 @@ export default function Home() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-          </div> */}
-
-
+          </div>
         </section>
 
         {/* Contact Us Section */}
@@ -102,6 +99,13 @@ export default function Home() {
           <ContactUs />
         </section>
       </main>
+
+      {/* Footer */}
+      <footer className="w-full text-center py-4 mt-10 text-sm text-gray-500">
+        {language === "ar"
+          ? "© 2025 جميع الحقوق محفوظة لترحال"
+          : "© 2025 All rights reserved to Terhal"}
+      </footer>
 
       {/* Dots Navigation */}
       <div className="fixed left-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">

@@ -18,20 +18,20 @@ export default function TerhalSuitcase() {
 
   const features: Record<"en" | "ar", string[]> = {
     en: [
-      "📍 GPS Tracking",
-      "🔒 Biometric Security Lock",
-      "⚖️ Built-in Weight Scale",
-      "🔋 USB Charging Port",
-      "💼 Stylish & Durable Design",
-      "🎒 Smart Interior Organization",
+      "GPS Tracking",
+      "Biometric Security Lock",
+      "Built-in Weight Scale",
+      "USB Charging Port",
+      "Stylish & Durable Design",
+      "Smart Interior Organization",
     ],
     ar: [
-      "📍 تتبع GPS",
-      "🔒 قفل بالبصمة آمن",
-      "⚖️ ميزان مدمج للوزن",
-      "🔋 منفذ شحن USB",
-      "💼 تصميم أنيق ومتين",
-      "🎒 تنظيم داخلي ذكي",
+      "تتبع GPS",
+      "قفل بالبصمة آمن",
+      "ميزان مدمج للوزن",
+      "منفذ شحن USB",
+      "تصميم أنيق ومتين",
+      "تنظيم داخلي ذكي",
     ],
   };
 

@@ -37,7 +37,9 @@ const AboutUs = () => {
          <span className="text-primary text-4xl sm:text-5xl font-bold">
            Terhal
          </span>
-         , we are dedicated to transforming the travel experience by introducing smart luggage that blends innovation, security, and convenience. Our mission is to eliminate common travel concerns such as lost luggage, security risks, and unexpected baggage fees by integrating advanced technologies into a stylish and functional design.
+         , we are dedicated to transforming the travel experience by introducing smart luggage that blends innovation, security, and convenience. Our mission is to eliminate common travel concerns such as lost luggage, security risks, and unexpected baggage fees by integrating advanced technologies <span className="text-primary text-2xl sm:text-3xl font-bold">
+           all-in-one
+         </span> stylish and functional design .
        </>
      ) : (
        <>
@@ -45,7 +47,9 @@ const AboutUs = () => {
          <span className="text-primary text-4xl sm:text-5xl font-bold">
            ترحال
          </span>
-         ، نسعى إلى إعادة تعريف تجربة السفر من خلال تقديم حقائب ذكية تجمع بين الابتكار، الأمان، والراحة. مهمتنا هي القضاء على مشاكل السفر الشائعة مثل فقدان الأمتعة، المخاطر الأمنية، والرسوم الزائدة على الوزن، وذلك عبر دمج أحدث التقنيات في تصميم أنيق وعملي.
+         ، نسعى إلى إعادة تعريف تجربة السفر من خلال تقديم حقائب ذكية تجمع بين الابتكار، الأمان، والراحة. مهمتنا هي القضاء على مشاكل السفر الشائعة مثل فقدان الأمتعة، المخاطر الأمنية، والرسوم الزائدة على الوزن، وذلك عبر <span className="text-primary text-2xl sm:text-3xl font-bold">
+           دمج
+         </span> أحدث التقنيات في تصميم أنيق وعملي.
        </>
         )}
       </motion.div>

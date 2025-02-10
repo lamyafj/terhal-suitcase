@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "./language";
 
@@ -13,19 +13,56 @@ interface ImageData {
 }
 
 const images: ImageData[] = [
-  { src: "./images/terhal1.png", description: { en: "Login", ar: "تسجيل الدخول" } },
-  { src: "./images/terhal2.png", description: { en: "Event Scheduling", ar: "جدولة الفعاليات" } },
-  { src: "./images/terhal3.png", description: { en: "Add Event", ar: "إضافة حدث" } },
-  { src: "./images/terhal4.png", description: { en: "Today's Schedule", ar: "مراجعة جدول اليوم" } },
-  { src: "./images/terhal5.png", description: { en: "Track Luggage Location", ar: "تحديد موقع الأمتعة" } },
+  {
+    src: "./images/terhal1.png",
+    description: { en: "Login", ar: "تسجيل الدخول" },
+  },
+  {
+    src: "./images/terhal2.png",
+    description: { en: "Event Scheduling", ar: "جدولة الفعاليات" },
+  },
+  {
+    src: "./images/terhal3.png",
+    description: { en: "Add Event", ar: "إضافة حدث" },
+  },
+  {
+    src: "./images/terhal4.png",
+    description: { en: "Today's Schedule", ar: "مراجعة جدول اليوم" },
+  },
+  {
+    src: "./images/terhal5.png",
+    description: { en: "Track Luggage Location", ar: "تحديد موقع الأمتعة" },
+  },
 ];
 
 const TerhalApp = () => {
   const { language } = useLanguage() as { language: LanguageKey };
 
-  // Animation and InView Hook
+  // Use state to store threshold, which depends on screen size (mobile vs. not).
+  const [threshold, setThreshold] = useState(0.3);
+
+  // Determine if we're on mobile; adjust threshold accordingly.
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setThreshold(0.1); // Mobile threshold
+      } else {
+        setThreshold(0.3); // Larger screens threshold
+      }
+    };
+
+    // Run once on mount and then on every resize
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Animation + InView
   const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.3 });
+  const [ref, inView] = useInView({ threshold });
 
   useEffect(() => {
     if (inView) {
@@ -46,6 +83,7 @@ const TerhalApp = () => {
       >
         {language === "en" ? "Terhal Application" : "تطبيق ترحال"}
       </motion.h2>
+
       <motion.p
         className="text-lg text-gray-700 mb-8"
         initial="hidden"
@@ -60,14 +98,11 @@ const TerhalApp = () => {
           : "يتيح لك تطبيق ترحال متابعة رحلاتك وتتبع أمتعتك بسهولة وأمان."}
       </motion.p>
 
-      {/*
-        - flex-col on mobile will stack items vertically
-        - md:flex-row on larger screens will switch them to horizontal if you like
-        - gap-8 adds some space between items
-        - items-center ensures everything is centered along cross-axis
-        - Remove overflow-x-auto unless you specifically want horizontal scrolling on larger screens
+      {/* 
+        flex-col = vertical (mobile default)
+        md:flex-row = horizontal (from medium screens and up)
       */}
-      <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center md:gap-12">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-8 overflow-hidden">
         {images.map((image, index) => (
           <motion.div
             key={index}
@@ -83,17 +118,14 @@ const TerhalApp = () => {
               hidden: { opacity: 0, y: 50 },
             }}
           >
-            {/* 
-              - w-full makes the image take full width of its container
-              - max-w-[300px] restricts it to 300px wide maximum
-              - h-auto keeps the aspect ratio correct
-            */}
             <img
               src={image.src}
               alt={image.description[language]}
-              className="w-full max-w-[300px] h-auto"
+              className="w-[300px] h-auto"
             />
-            <p className="text-lg text-gray-600 mt-4">{image.description[language]}</p>
+            <p className="text-lg text-gray-600 mt-4">
+              {image.description[language]}
+            </p>
           </motion.div>
         ))}
       </div>

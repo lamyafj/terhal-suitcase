@@ -31,6 +31,7 @@
   :root {
     --background: #ffffff;
     --foreground: #000000;
+    overflow-x: hidden
   }
 }
 
@@ -40,8 +41,14 @@ body {
   font-family: 'Pochaevsk','zain';
 
   background-attachment: fixed;
-  overflow-x: hidden;
+  overflow-x: hidden
 }
+
+html{
+  overflow-x: hidden
+}
+
+
 
 
 /* Minimal Scrollbar */

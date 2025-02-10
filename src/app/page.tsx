@@ -55,7 +55,7 @@ export default function Home() {
       <img
         src="./blob-scene.svg"
         alt="Background"
-        className="fixed top-0 left-0 w-screen h-screen object-cover z-[-1]"
+        className="fixed top-0 left-0 w-screen h-screen object-cover z-[-3]"
       />
 
       <main className="pt-20 sm:pt-24 md:pt-28 lg:pt-32">

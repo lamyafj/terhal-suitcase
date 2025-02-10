@@ -34,9 +34,9 @@ const Header = () => {
       </button>
 
       {/* Desktop Navigation */}
-      <div className="hidden sm:flex space-x-4 text-black">
+      <div className="hidden sm:flex gap-3 text-black">
         <button onClick={() => scrollToSection("about-us")}>
-          {language === "en" ? "About Us" : "معلومات عنا"}
+          {language === "en" ? "About Us" : " معلومات عنا"}
         </button>
         <button onClick={() => scrollToSection("terhal-suitcase")}>
           {language === "en" ? "Terhal Suitcase" : "حقيبة ترحال"}

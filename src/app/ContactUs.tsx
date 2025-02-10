@@ -7,6 +7,9 @@ const ContactUs = () => {
   return (
     <section id="contact-us" className="py-16 text-center">
       <h2 className="text-2xl font-bold mb-4 text-gray-800">
+        {language === "en" ? "Stay up-to-date on all our latest news" : "لا تفوت أي جديد"}
+      </h2>
+      <h2 className="text-xl font-bold mb-4 text-gray-800">
         {language === "en" ? "Contact Us" : "تواصل معنا"}
       </h2>
       <form className="max-w-md mx-auto space-y-4">

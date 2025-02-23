@@ -8,7 +8,7 @@ import ContactUs from "./ContactUs";
 import TerhalSuitcase from "./terhalsuitcase";
 import { useState, useEffect } from "react";
 import { useLanguage } from "./language";
-// import { Analytics } from "@vercel/analytics/react"
+ import { Analytics } from "@vercel/analytics/react"
 
 const sections = [
   { id: "about-us", title: { en: "About Us", ar: "من نحن" } },
@@ -52,21 +52,28 @@ export default function Home() {
   return (
     <div className={`relative ${language === "ar" ? "rtl text-right" : "ltr text-left"}`}>
       {/* Google Analytics */}
-      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=G-4CT32D4D6Q`} />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-4CT32D4D6Q', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }}
-      />
+{/* Google Analytics Script Loader */}
+<Script
+  strategy="afterInteractive"
+  src={`https://www.googletagmanager.com/gtag/js?id=G-4CT32D4D6Q`}
+/>
+
+{/* Initialize Google Analytics */}
+<Script
+  id="google-analytics"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{
+    __html: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4CT32D4D6Q', {
+        page_path: window.location.pathname,
+      });
+    `,
+  }}
+/>
+
 
       <Header />
 
@@ -76,6 +83,7 @@ export default function Home() {
         alt="Background"
         className="fixed top-0 left-0 w-screen h-screen object-cover z-[-3]"
       />
+        <Analytics />
 
       <main className="pt-20 sm:pt-24 md:pt-28 lg:pt-32">
         {/* About Us Section */}

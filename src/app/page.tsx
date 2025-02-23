@@ -8,7 +8,7 @@ import ContactUs from "./ContactUs";
 import TerhalSuitcase from "./terhalsuitcase";
 import { useState, useEffect } from "react";
 import { useLanguage } from "./language";
-import { Analytics } from "@vercel/analytics/react"
+// import { Analytics } from "@vercel/analytics/react"
 
 const sections = [
   { id: "about-us", title: { en: "About Us", ar: "من نحن" } },

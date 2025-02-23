@@ -8,6 +8,7 @@ import ContactUs from "./ContactUs";
 import TerhalSuitcase from "./terhalsuitcase";
 import { useState, useEffect } from "react";
 import { useLanguage } from "./language";
+import { Analytics } from "@vercel/analytics/react"
 
 const sections = [
   { id: "about-us", title: { en: "About Us", ar: "من نحن" } },
@@ -60,7 +61,7 @@ export default function Home() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX', {
+            gtag('config', 'G-4CT32D4D6Q', {
               page_path: window.location.pathname,
             });
           `,

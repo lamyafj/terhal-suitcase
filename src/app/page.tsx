@@ -1,12 +1,13 @@
 "use client";
 
+import Script from "next/script";
 import Header from "./header";
 import AboutUs from "./aboutus";
 import TerhalApp from "./TerhalApp";
 import ContactUs from "./ContactUs";
 import TerhalSuitcase from "./terhalsuitcase";
 import { useState, useEffect } from "react";
-import { useLanguage } from "./language"; // Import useLanguage hook
+import { useLanguage } from "./language";
 
 const sections = [
   { id: "about-us", title: { en: "About Us", ar: "من نحن" } },
@@ -49,6 +50,23 @@ export default function Home() {
 
   return (
     <div className={`relative ${language === "ar" ? "rtl text-right" : "ltr text-left"}`}>
+      {/* Google Analytics */}
+      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=G-4CT32D4D6Q`} />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
+
       <Header />
 
       {/* Background SVG */}
@@ -78,22 +96,21 @@ export default function Home() {
 
         {/* Terhal Video Section */}
         <section id="terhal-video" className="min-h-screen flex flex-col items-center justify-center">
-  <h2 className="text-4xl font-bold mb-4">
-    {language === "ar" ? "ألقِ نظرة على ترحال" : "Take a look at Terhal"}
-  </h2>
-  <div className="w-full max-w-3xl">
-    <iframe
-      width="100%"
-      height="400"
-      src="https://www.youtube.com/embed/5gFS0omyeZo" 
-      title={language === "ar" ? "فيديو ترحال" : "Terhal Video"}
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
-  </div>
-</section>
-
+          <h2 className="text-4xl font-bold mb-4">
+            {language === "ar" ? "ألقِ نظرة على ترحال" : "Take a look at Terhal"}
+          </h2>
+          <div className="w-full max-w-3xl">
+            <iframe
+              width="100%"
+              height="400"
+              src="https://www.youtube.com/embed/5gFS0omyeZo"
+              title={language === "ar" ? "فيديو ترحال" : "Terhal Video"}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </section>
 
         {/* Contact Us Section */}
         <section id="contact-us" className="min-h-screen flex items-center justify-center text-black">
@@ -103,9 +120,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="w-full text-center py-4 mt-10 text-sm text-gray-500">
-        {language === "ar"
-          ? "© 2025 جميع الحقوق محفوظة لترحال"
-          : "© 2025 All rights reserved to Terhal"}
+        {language === "ar" ? "© 2025 جميع الحقوق محفوظة لترحال" : "© 2025 All rights reserved to Terhal"}
       </footer>
 
       {/* Dots Navigation */}

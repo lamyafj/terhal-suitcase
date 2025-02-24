@@ -13,7 +13,7 @@ export default function TerhalSuitcase() {
   const [img3Ref, img3InView] = useInView({ threshold: 0.2, triggerOnce: true });
   const [img4Ref, img4InView] = useInView({ threshold: 0.2, triggerOnce: true });
   const [leftRef, leftInView] = useInView({ threshold: 0.3, triggerOnce: true });
-  const [rightRef, rightInView] = useInView({ threshold: 0.3, triggerOnce: true });
+
 
   const features: Record<"en" | "ar", string[]> = {
     en: [
@@ -21,18 +21,27 @@ export default function TerhalSuitcase() {
       "Biometric Security Lock",
       "Built-in Weight Scale",
       "USB Charging Port",
-      "Stylish & Durable Design",
+      "TSA-Approved Lock",
       "Smart Interior Organization",
+      "Real-Time Luggage Status in App",
+      "Remote Lock/Unlock Feature",
+      "Scratch-Resistant Material",
+      "Long-Lasting Battery Life",
     ],
     ar: [
       "تتبع GPS",
       "قفل بالبصمة آمن",
       "ميزان مدمج للوزن",
       "منفذ شحن USB",
-      "تصميم أنيق ومتين",
+      "قفل معتمد من TSA",
       "تنظيم داخلي ذكي",
+      "حالة الأمتعة في الوقت الفعلي عبر التطبيق",
+      "ميزة القفل/إلغاء القفل عن بُعد",
+      "مادة مقاومة للخدوش",
+      "بطارية تدوم طويلاً",
     ],
   };
+  
 
   return (
     <div style={{ textAlign: "center", padding: "40px" }}>
@@ -71,24 +80,7 @@ export default function TerhalSuitcase() {
       {/* Features + Flying Suitcases */}
       <div className="flex items-center justify-center gap-10 px-4 py-5 relative">
         
-        {/* Left-Side Features */}
-        <motion.div
-          ref={leftRef}
-          // Center text on mobile, revert to left/right for bigger screens
-          className={`
-            text-center 
-            sm:${language === "ar" ? "text-left" : "text-right"} 
-            ${language === "ar" ? "rtl" : "ltr"}
-            text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold
-          `}
-          initial={{ x: language === "ar" ? -100 : 100, opacity: 0 }}
-          animate={leftInView ? { x: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          {features[language].slice(0, 3).map((feature, index) => (
-            <div key={index} className="my-2">{feature}</div>
-          ))}
-        </motion.div>
+
 
         {/* Flying Suitcases */}
         <motion.img
@@ -148,23 +140,27 @@ export default function TerhalSuitcase() {
         />
 
         {/* Right-Side Features */}
-        <motion.div
-          ref={rightRef}
-          // Center text on mobile, revert to left/right for bigger screens
-          className={`
-            text-center
-            sm:${language === "ar" ? "text-right" : "text-left"}
-            ${language === "ar" ? "rtl" : "ltr"}
-            text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold
-          `}
-          initial={{ x: language === "ar" ? 100 : -100, opacity: 0 }}
-          animate={rightInView ? { x: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          {features[language].slice(3, 6).map((feature, index) => (
-            <div key={index} className="my-2">{feature}</div>
-          ))}
-        </motion.div>
+{/* Features Grid */}
+<div className="flex flex-wrap  justify-center grid-cols-1 sm:grid-cols-2 gap-10 px-4 py-5 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center">
+  
+{/* Features in a Single Centered Row */}
+<motion.div
+  ref={leftRef}
+  initial={{ opacity: 0, y: 20 }}
+  animate={leftInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.8 }}
+  className="flex flex-wrap justify-center gap-6 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center"
+>
+  {features[language].map((feature, index) => (
+    <div key={index} className="px-4 py-2 bg-gray-100 rounded-lg shadow-md">
+      {feature}
+    </div>
+  ))}
+</motion.div>
+
+
+</div>
+
       </div>
     </div>
   );

@@ -1,3 +1,6 @@
+"use client";
+
+
 import Script from "next/script";
 import Header from "./header";
 import AboutUs from "./aboutus";

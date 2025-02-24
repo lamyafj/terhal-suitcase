@@ -44,8 +44,8 @@ const Header = () => {
         <button onClick={() => scrollToSection("terhal-app")}>
           {language === "en" ? "Terhal Application" : "تطبيق ترحال"}
         </button>
-        <button onClick={() => scrollToSection("contact-us")}>
-          {language === "en" ? "Contact Us" : "تواصل معنا"}
+        <button onClick={() => scrollToSection("Subscribe")}>
+          {language === "en" ? "Subscribe" : "اشترك معنا"}
         </button>
         <button onClick={toggleLanguage} className="rounded text-black">
           {language === "en" ? "Arabic" : "English"}
@@ -64,8 +64,8 @@ const Header = () => {
           <button onClick={() => scrollToSection("terhal-app")}>
             {language === "en" ? "Terhal Application" : "تطبيق ترحال"}
           </button>
-          <button onClick={() => scrollToSection("contact-us")}>
-            {language === "en" ? "Contact Us" : "تواصل معنا"}
+          <button onClick={() => scrollToSection("Subscribe")}>
+            {language === "en" ? "Subscribe" : "اشترك معنا"}
           </button>
           <button onClick={toggleLanguage} className="rounded text-black">
             {language === "en" ? "Arabic" : "English"}

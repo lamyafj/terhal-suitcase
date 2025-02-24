@@ -4,18 +4,20 @@ import Script from "next/script";
 import Header from "./header";
 import AboutUs from "./aboutus";
 import TerhalApp from "./TerhalApp";
-import ContactUs from "./ContactUs";
 import TerhalSuitcase from "./terhalsuitcase";
 import { useState, useEffect } from "react";
 import { useLanguage } from "./language";
 import { Analytics } from "@vercel/analytics/react";
+import Subscribe from "./Subscribe";
+import SocialLinks from "./SocialLinks";  
+
 
 const sections = [
   { id: "about-us", title: { en: "About Us", ar: "من نحن" } },
   { id: "terhal-suitcase", title: { en: "Terhal Suitcase", ar: "حقيبة ترحال" } },
   { id: "terhal-app", title: { en: "Terhal App", ar: "تطبيق ترحال" } },
   { id: "terhal-video", title: { en: "Terhal Video", ar: "فيديو ترحال" } },
-  { id: "contact-us", title: { en: "Contact Us", ar: "اتصل بنا" } },
+  { id: "Subscribe", title: { en: "Subscribe", ar: "اشترك معنا" } },
 ];
 
 export default function Home() {
@@ -139,9 +141,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact-us" className="min-h-screen flex items-center justify-center text-black">
-          <ContactUs />
+        <section id="Subscribe" className="min-h-screen flex items-center justify-center text-black">
+          <Subscribe />
         </section>
+
+        <SocialLinks />
+
       </main>
 
       <footer className="w-full text-center py-4 mt-10 text-sm text-gray-500">

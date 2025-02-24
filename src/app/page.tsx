@@ -1,6 +1,5 @@
 "use client";
 
-
 import Script from "next/script";
 import Header from "./header";
 import AboutUs from "./aboutus";
@@ -24,15 +23,21 @@ const sections = [
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about-us");
   const { language }: { language: "en" | "ar" } = useLanguage();
+  const [backgroundImage, setBackgroundImage] = useState("./blob-scene.svg");
 
   useEffect(() => {
+    // Function to update background based on screen size
+    const updateBackground = () => {
+      setBackgroundImage(window.innerWidth <= 768 ? "./phone.png" : "./blob-scene.svg");
+    };
+
+    // Function to track active section while scrolling
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        const visibleSection = entries.find((entry) => entry.isIntersecting);
+        if (visibleSection) {
+          setActiveSection(visibleSection.target.id);
+        }
       },
       { threshold: 0.6 }
     );
@@ -42,7 +47,14 @@ export default function Home() {
       if (element) observer.observe(element);
     });
 
-    return () => observer.disconnect();
+    // Set initial values
+    updateBackground();
+    window.addEventListener("resize", updateBackground);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateBackground);
+    };
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -55,10 +67,7 @@ export default function Home() {
   return (
     <div className={`relative ${language === "ar" ? "rtl text-right" : "ltr text-left"}`}>
       {/* Google Analytics */}
-      <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=G-4CT32D4D6Q`}
-      />
+      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=G-4CT32D4D6Q`} />
       <Script
         id="google-analytics"
         strategy="afterInteractive"
@@ -69,20 +78,13 @@ export default function Home() {
             window.gtag = gtag;
 
             gtag('js', new Date());
-
-            gtag('event', 'session_start', {
-              session_id: Date.now(),
-            });
-
-            gtag('config', 'G-4CT32D4D6Q', {
-              page_path: window.location.pathname,
-            });
+            gtag('event', 'session_start', { session_id: Date.now() });
+            gtag('config', 'G-4CT32D4D6Q', { page_path: window.location.pathname });
           `,
         }}
       />
 
-      {/* ✅ Plausible Analytics with Extended Features */}
-      <Script
+<Script
         strategy="lazyOnload"
         data-domain="terhal-suitcase.vercel.app"
         src="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"
@@ -98,15 +100,15 @@ export default function Home() {
           `,
         }}
       />
-
       <Header />
 
-      {/* Background SVG */}
+      {/* Background Image (Changes Based on Device) */}
       <img
-        src="./blob-scene.svg"
+        src={backgroundImage}
         alt="Background"
         className="fixed top-0 left-0 w-screen h-screen object-cover z-[-3]"
       />
+
       <Analytics />
 
       <main className="pt-20 sm:pt-24 md:pt-28 lg:pt-32">
@@ -151,11 +153,14 @@ export default function Home() {
         {language === "ar" ? "© 2025 جميع الحقوق محفوظة لترحال" : "© 2025 All rights reserved to Terhal"}
       </footer>
 
+      {/* Scroll Navigation Dots (Active Section) */}
       <div className="fixed left-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">
         {sections.map((section) => (
           <button
             key={section.id}
-            className={`w-4 h-4 rounded-full ${activeSection === section.id ? "bg-black" : "bg-gray-400"}`}
+            className={`w-4 h-4 rounded-full transition-colors duration-300 ${
+              activeSection === section.id ? "bg-black scale-125" : "bg-gray-400"
+            }`}
             onClick={() => scrollToSection(section.id)}
           ></button>
         ))}

@@ -1,5 +1,3 @@
-"use client";
-
 import Script from "next/script";
 import Header from "./header";
 import AboutUs from "./aboutus";
@@ -8,7 +6,7 @@ import ContactUs from "./ContactUs";
 import TerhalSuitcase from "./terhalsuitcase";
 import { useState, useEffect } from "react";
 import { useLanguage } from "./language";
- import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 const sections = [
   { id: "about-us", title: { en: "About Us", ar: "من نحن" } },
@@ -52,37 +50,49 @@ export default function Home() {
   return (
     <div className={`relative ${language === "ar" ? "rtl text-right" : "ltr text-left"}`}>
       {/* Google Analytics */}
-{/* Google Analytics Script Loader */}
-<Script
-  strategy="afterInteractive"
-  src={`https://www.googletagmanager.com/gtag/js?id=G-4CT32D4D6Q`}
-/>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-4CT32D4D6Q`}
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
 
-{/* Initialize Google Analytics */}
-<Script
-  id="google-analytics"
-  strategy="afterInteractive"
-  dangerouslySetInnerHTML={{
-    __html: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
+            gtag('js', new Date());
 
-      gtag('js', new Date());
-      
-      // 🔹 Start a session manually
-      gtag('event', 'session_start', {
-        session_id: Date.now(),
-      });
+            gtag('event', 'session_start', {
+              session_id: Date.now(),
+            });
 
-      // 🔹 Track the first page view
-      gtag('config', 'G-4CT32D4D6Q', {
-        page_path: window.location.pathname,
-      });
-    `,
-  }}
-/>
+            gtag('config', 'G-4CT32D4D6Q', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
 
+      {/* ✅ Plausible Analytics with Extended Features */}
+      <Script
+        strategy="lazyOnload"
+        data-domain="terhal-suitcase.vercel.app"
+        src="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"
+      />
+      <Script
+        id="plausible-events"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.plausible = window.plausible || function() { 
+              (window.plausible.q = window.plausible.q || []).push(arguments);
+            };
+          `,
+        }}
+      />
 
       <Header />
 
@@ -92,27 +102,21 @@ export default function Home() {
         alt="Background"
         className="fixed top-0 left-0 w-screen h-screen object-cover z-[-3]"
       />
-        <Analytics />
+      <Analytics />
 
       <main className="pt-20 sm:pt-24 md:pt-28 lg:pt-32">
-        {/* About Us Section */}
         <section id="about-us" className="min-h-screen">
           <AboutUs />
         </section>
 
-        {/* Terhal Suitcase Section */}
         <section id="terhal-suitcase" className="min-h-screen flex items-center justify-center">
-          <div>
-            <TerhalSuitcase />
-          </div>
+          <TerhalSuitcase />
         </section>
 
-        {/* Terhal App Section */}
         <section id="terhal-app" className="min-h-screen flex items-center justify-center text-black">
           <TerhalApp />
         </section>
 
-        {/* Terhal Video Section */}
         <section id="terhal-video" className="min-h-screen flex flex-col items-center justify-center">
           <h2 className="text-4xl font-bold mb-4">
             {language === "ar" ? "ألقِ نظرة على ترحال" : "Take a look at Terhal"}
@@ -130,18 +134,15 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact Us Section */}
         <section id="contact-us" className="min-h-screen flex items-center justify-center text-black">
           <ContactUs />
         </section>
       </main>
 
-      {/* Footer */}
       <footer className="w-full text-center py-4 mt-10 text-sm text-gray-500">
         {language === "ar" ? "© 2025 جميع الحقوق محفوظة لترحال" : "© 2025 All rights reserved to Terhal"}
       </footer>
 
-      {/* Dots Navigation */}
       <div className="fixed left-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">
         {sections.map((section) => (
           <button

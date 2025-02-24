@@ -66,7 +66,16 @@ export default function Home() {
     __html: `
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+
       gtag('js', new Date());
+      
+      // 🔹 Start a session manually
+      gtag('event', 'session_start', {
+        session_id: Date.now(),
+      });
+
+      // 🔹 Track the first page view
       gtag('config', 'G-4CT32D4D6Q', {
         page_path: window.location.pathname,
       });
